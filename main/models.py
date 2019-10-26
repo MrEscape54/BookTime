@@ -1,5 +1,9 @@
 from django.db import models
 
+class ActiveManager(models.Manager):
+   def active(self):
+      return self.filter(active=True)
+
 class Product(models.Model):
    name = models.CharField(max_length=40)
    description = models.TextField(blank=True)
@@ -11,6 +15,8 @@ class Product(models.Model):
 
    def __str__(self):
       return self.name
+   
+   object = ActiveManager()
 
 class ProductImage(models.Model):
    product = models.ForeignKey(Product, on_delete=models.CASCADE)
