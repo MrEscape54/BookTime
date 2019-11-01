@@ -16,8 +16,9 @@ class ContactUsView(FormView):
       form.send_mail()
       return super().form_valid(form)
 
-class ProductListView(ListView):
-   template_name = "main/product_list.html"
+class ProductList(ListView):
+   #template_name = "main/product_list.html"
+   #model = models.Product
    paginate_by = 4
 
    def get_queryset(self):

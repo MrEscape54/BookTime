@@ -36,7 +36,7 @@ class Product(models.Model):
    in_stock = models.BooleanField(default=True)
    date_updated = models.DateField(auto_now=True)
 
-   object = ActiveManager()
+   objects = ActiveManager()
 
    def __str__(self):
       return self.name
